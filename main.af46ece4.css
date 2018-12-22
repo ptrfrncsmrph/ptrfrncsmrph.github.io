@@ -11,6 +11,19 @@
   --red: #ec5f67;
 }
 
+
+@media (max-width: 480px) {
+  :root {
+    font-size: calc(1.5vw + 1.5vh + .5vmin);
+  }
+}
+
+@media (min-width: 480px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   
