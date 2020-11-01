@@ -1,7 +1,11 @@
 module Posts where
 
-import Prelude
-import Foreign (Foreign)
+type Post_
+  = { filePath :: String
+    , urlPath :: String
+    , title :: String
+    , date :: String
+    , description :: String
+    }
 
--- | Not sure if this module was necessary after all
-foreign import posts_ :: Array Foreign
+foreign import posts_ :: Array Post_

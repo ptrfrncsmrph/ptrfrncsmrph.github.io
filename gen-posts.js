@@ -140,7 +140,8 @@ function main() {
     const [aDate, bDate] = [a.date, b.date].map((d) => Date.parse(d))
     return bDate - aDate
   })
-  const postsJSON = JSON.stringify({ posts_: posts }, null, 2)
+  const posts_ = posts.map(({ content, ...p }) => p)
+  const postsJSON = JSON.stringify({ posts_ }, null, 2)
   fs.mkdirSync("src/gen", { recursive: true })
   const exportPath = "src/Gen/Posts.js"
   fs.writeFileSync(
