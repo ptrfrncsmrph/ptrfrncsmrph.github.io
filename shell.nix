@@ -16,7 +16,7 @@ let
   }) { inherit pkgs; };
 
 in pkgs.stdenv.mkDerivation {
-  name = "haskell-exercises-client";
+  name = "purescript-nextjs-blog";
   buildInputs = with pursPkgs; [
     pursPkgs.purs
     pursPkgs.spago

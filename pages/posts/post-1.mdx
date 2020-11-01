@@ -1,0 +1,41 @@
+import { page as Page } from "@purescript/Page"
+export default Page
+
+export const meta = {
+  date: "October 31, 2020",
+  description: "Example",
+}
+
+# Example
+
+Isn't it great!
+
+### Interface
+
+<MultiCodeBlock>
+
+
+```swift
+// interface, abstract type: A protocol
+protocol ExampleProtocol {
+  static func create(_ s: String) -> Self
+  func read() -> String
+}
+```
+
+```typescript
+// interface, abstract type: An interface
+//
+// In TypeScript, we have to have separate interfaces for the static and
+// instance sides of a class
+
+interface ExampleConstructor {
+  new (s: string): ExampleInterface
+}
+interface ExampleInterface {
+  read(): string
+}
+```
+
+</MultiCodeBlock>
+
