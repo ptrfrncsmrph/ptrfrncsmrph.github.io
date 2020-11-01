@@ -1,1 +1,1 @@
-export { index as default } from "@purescript/Index"
+export { index as default } from "@purescript/Index";

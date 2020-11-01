@@ -1,24 +1,26 @@
 module Page where
 
 import Prelude
+import CodeBlock as CodeBlock
 import Data.Tuple.Nested ((/\))
-import Effect.Class.Console (log)
 import Effect.Unsafe (unsafePerformEffect)
 import Foreign.Object (fromFoldable)
 import Layout as Layout
+import MultiCodeBlock as MultiCodeBlock
 import Next as Next
-import React.Basic.Hooks (Component, JSX, component, useEffectOnce)
-import React.Basic.Hooks as React
+import React.Basic.Hooks (Component, JSX, component)
 import Unsafe.Coerce (unsafeCoerce)
 
 mkPage :: Component { children :: Array JSX }
 mkPage = do
   layout <- Layout.mkLayout
   mdxProvider <- Next.mkMDXProvider
+  multiCodeBlock <- MultiCodeBlock.mkMultiCodeBlock
+  codeBlock <- CodeBlock.mkCodeBlock
   component "Page" \{ children } -> React.do
-    useEffectOnce do
-      log $ unsafeCoerce children
-      pure mempty
+    -- useEffectOnce do
+    --   log $ unsafeCoerce children
+    --   pure mempty
     pure
       $ mdxProvider
           { children:
@@ -29,8 +31,11 @@ mkPage = do
                   }
               ]
           , components:
-              -- fromFoldable [ "MultiCodeBlock" /\ unsafeCoerce layout ]
-              fromFoldable []
+              fromFoldable
+                [ "code" /\ unsafeCoerce codeBlock
+                , "MultiCodeBlock" /\ unsafeCoerce multiCodeBlock
+                ]
+          -- fromFoldable []
           }
 
 -- | Interop

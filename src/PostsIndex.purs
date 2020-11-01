@@ -1,20 +1,14 @@
 module PostsIndex where
 
 import Prelude
-import Effect.Class.Console (log)
 import Effect.Unsafe (unsafePerformEffect)
 import Layout as Layout
-import React.Basic.Hooks (Component, JSX, component, useEffectOnce)
-import React.Basic.Hooks as React
-import Unsafe.Coerce (unsafeCoerce)
+import React.Basic.Hooks (Component, JSX, component)
 
 mkPostsIndex :: Component { children :: Array JSX }
 mkPostsIndex = do
   layout <- Layout.mkLayout
-  component "Index" \{ children } -> React.do
-    useEffectOnce do
-      log $ unsafeCoerce children
-      pure mempty
+  component "PostsIndex" \{ children } -> React.do
     pure
       $ layout
           { children

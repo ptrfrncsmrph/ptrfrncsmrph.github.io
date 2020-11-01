@@ -1,10 +1,10 @@
-import { page as Page } from "@purescript/Page"
-export default Page
+import { page as Page } from "@purescript/Page";
+export default Page;
 
 export const meta = {
   date: "October 31, 2020",
   description: "Example",
-}
+};
 
 # Example
 
@@ -15,14 +15,6 @@ Isn't it great!
 <MultiCodeBlock>
 
 
-```swift
-// interface, abstract type: A protocol
-protocol ExampleProtocol {
-  static func create(_ s: String) -> Self
-  func read() -> String
-}
-```
-
 ```typescript
 // interface, abstract type: An interface
 //
@@ -30,11 +22,17 @@ protocol ExampleProtocol {
 // instance sides of a class
 
 interface ExampleConstructor {
-  new (s: string): ExampleInterface
+  new (s: string): ExampleInterface;
 }
 interface ExampleInterface {
-  read(): string
+  read(): string;
 }
+```
+
+```purescript
+module PureScript where
+
+import Prelude
 ```
 
 </MultiCodeBlock>

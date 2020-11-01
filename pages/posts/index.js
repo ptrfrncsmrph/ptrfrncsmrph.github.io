@@ -1,1 +1,1 @@
-export { postsIndex as default } from "@purescript/PostsIndex"
+export { postsIndex as default } from "@purescript/PostsIndex";
