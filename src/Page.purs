@@ -8,7 +8,10 @@ import Foreign.Object (fromFoldable)
 import Layout as Layout
 import MultiCodeBlock as MultiCodeBlock
 import Next as Next
+import React (ReactElement)
 import React.Basic.Hooks (Component, JSX, component)
+import React.Basic.Hooks as React
+import React.Basic.DOM as R
 import Unsafe.Coerce (unsafeCoerce)
 
 mkPage :: Component { children :: Array JSX }
@@ -35,9 +38,19 @@ mkPage = do
                 [ "code" /\ unsafeCoerce codeBlock
                 , "MultiCodeBlock" /\ unsafeCoerce multiCodeBlock
                 ]
-          -- fromFoldable []
           }
 
+-- mkCode :: Component { className :: String }
+-- mkCode = do 
+-- type Component'
+--   = { className :: String
+--     , element :: JSX
+--     , name :: String
+--     }
+-- wrap :: Component' -> forall r. Component { className :: String | r }
+-- wrap c = do
+--   component c.name \props ->
+--     pure  c.element
 -- | Interop
 page :: { children :: Array JSX } -> JSX
 page = unsafePerformEffect mkPage

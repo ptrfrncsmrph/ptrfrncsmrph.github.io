@@ -4,7 +4,7 @@ import Prelude
 import Data.Array ((!!))
 import Data.Maybe (Maybe(..))
 import React.Basic.DOM as R
-import React.Basic.Hooks (Component, component, useState', (/\))
+import React.Basic.Hooks (Component, component, fragment, useState', (/\))
 import React.Basic.Hooks as React
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -30,7 +30,8 @@ mkMultiCodeBlock = do
               [ R.text "lang"
               , unsafeCoerce node
               ]
-          Nothing -> R.text "NOthing"
+          -- @TODO: Make this impossible state unrepresentable
+          Nothing -> mempty
 
 parseLanguage :: Gross -> Maybe Language
 parseLanguage { props } = case props.children.props.className of
